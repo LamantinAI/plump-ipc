@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "plump-ipc"
+version = "0.1.0"
+description = "A lightweight, asyncio-native IPC framework for seamless communication over multiprocessing pipes."
+readme = "README.md"
+authors = [
+    { name = "GrumpyChubbyCat", email = "lamantin-ai@yandex.ru" },
+]
+license = "MIT"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/LamantinAI/plump-ipc"
+
+[tool.hatch.build.targets.wheel]
+packages = ["plump_ipc"]
