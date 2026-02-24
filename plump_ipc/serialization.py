@@ -26,8 +26,8 @@ class PickleSerializer(Serializer):
 class JsonSerializer(Serializer):
     @staticmethod
     def dumps(obj: Any):
-        return json.dumps(obj)
+        return json.dumps(obj).encode("utf-8")
 
     @staticmethod
     def loads(data: bytes):
-        return json.loads(data)
+        return json.loads(data.decode("utf-8"))

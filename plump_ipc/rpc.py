@@ -56,8 +56,10 @@ class PlumpIPC:
 
     def call(self, method_name: str, *args, **kwargs) -> Any:
         payload = self._serializer.dumps((method_name, args, kwargs))
-        self.parent_conn.send(payload)
-        response = self._serializer.loads(self.parent_conn.recv())
+        self.parent_conn.send_bytes(payload)
+        
+        raw_response = self.parent_conn.recv_bytes()
+        response = self._serializer.loads(raw_response)
 
         if response["status"] == "ok":
             return response["data"]
